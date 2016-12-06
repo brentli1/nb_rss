@@ -1,0 +1,40 @@
+.main-nav {
+  @include rem("padding", 0 10px);
+  background: $color-main-nav__base;
+  height: 50px;
+  position: relative;
+
+  &__logo {
+    @include rem("font-size", 20px);
+    color: #FFFFFF;
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+  }
+
+  &__emp {
+    color: $color-secondary;
+  }
+
+  &__items {
+    text-align: right;
+  }
+
+  &__item {
+    color: #FFFFFF;
+    display: inline-block;
+    line-height: 50px;
+
+    &:last-child {
+      @include rem("margin-left", 20px);
+    }
+  }
+
+  &__item-link {
+    color: #FFFFFF;
+
+    &:hover {
+      color: darken(#FFFFFF, 15);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+// BASE CONFIG
+$font-base-px: 16px !default;
+
+// SUSY CONFIGURATION
+$susy: (
+  columns: 12,  // The number of columns in your grid
+  gutters: 4/12 // The size of a gutter in relation to a single column
+  );
+
+// COLORS
+$color-primary: #152736;
+$color-secondary: #948557;
+$color-main-nav__base: $color-primary;
+
+// FONTS
+$font-family-base: 'Lato', sans-serif !default;
+$font-weight-normal: 400;
+$font-weight-light: 300;
+$font-weight-bold: 700;
