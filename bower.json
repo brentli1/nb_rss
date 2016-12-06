@@ -1,0 +1,20 @@
+{
+  "name": "nb_rss",
+  "description": "",
+  "main": "",
+  "authors": [
+    "brentli1 <brent.jlinville@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/brentli1/nb_rss",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "susy": "^2.2.12"
+  }
+}
