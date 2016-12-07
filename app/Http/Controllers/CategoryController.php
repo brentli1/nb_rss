@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Routing\Controller;
 use App\Category;
+use App\Feed;
 
-class CategoryController extends BaseController
+class CategoryController extends Controller
 {
-  public function show($id) {
-    $item = Category::find($id);
-    return view('home/categories/show', ['item' => $item]);
+  public function getAll() {
+    return Category::all();
+  }
+
+  public function getFeeds($id) {
+    return Category::find($id)->feeds;
   }
 }

@@ -1,5 +1,6 @@
 var elixir = require('laravel-elixir');
-require("laravel-elixir-webpack-official");
+// require("laravel-elixir-webpack-official");
+require('laravel-elixir-vue-2');
 
 /*
  |--------------------------------------------------------------------------
@@ -16,10 +17,7 @@ require("laravel-elixir-webpack-official");
 //     mix.sass('app.scss');
 // });
 
-elixir(function(mix) {
+elixir(mix => { 
   mix.webpack('app.js');
-});
-
-elixir(function(mix) {
   mix.sass('app.scss');
 });

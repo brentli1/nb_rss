@@ -13,5 +13,10 @@ Elixir.webpack.mergeConfig({
     'window.jQuery': 'jquery',
     'window.$' : 'jquery'
   })
-  ]
+  ],
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.common.js'
+    }
+  }
 });

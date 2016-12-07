@@ -15,7 +15,7 @@ use App\Category;
 
 Route::get('/', function () {
   if (Auth::check()) {
-    return view('home');
+    return view('app');
   } else {
     return view('index');
   }
@@ -23,6 +23,15 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/app', 'HomeController@index');
 
-Route::get('/category/{id}', ['uses' => 'CategoryController@show']);
+// Route::get('/category/{id}', ['uses' => 'CategoryController@show']);
+
+Route::get('/api/category', 'CategoryController@getAll')->middleware('auth');
+Route::get('/api/category/{id}', 'CategoryController@getFeeds')->middleware('auth');
+
+# Vue
+Route::any('{all}', function () {
+    return view('app');
+})
+->where(['all' => '.*']);
