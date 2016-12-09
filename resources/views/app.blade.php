@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="/css/app.css">
   </head>
   <body>
-    <!-- Navigation -->
-    @include('site.main_nav')
+    <div class="site-wrapper">
+      <!-- Navigation -->
+      @include('site.main_nav')
 
-    <!-- Main Body -->
-    <section id="app" class="main-body"></section>
+      <!-- Main Body -->
+      <div id="app" class="main-body">
+        <router-view keep-alive transition transition-mode="out-in">
+        </router-view>
+      </div>
+    </div>
 
     <!-- Javascripts -->
     <script src="/js/app.js"></script>

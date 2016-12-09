@@ -1,26 +1,40 @@
-.home-categories {
-  @include span(6 of 12);
-  @include rem("padding", 15px);
-  background-color: lighten($color-secondary, 40);
-  border: 1px solid $color-primary;
+.categories {
+  background-color: #948557;
+  display: flex;
+  flex: 0 0 25%;
+  flex-direction: column;
 
-  &__title {
-    @include rem("font-size", 24px);
-    @include rem("margin-bottom", 15px);
-    @include rem("padding-bottom", 7px);
-    border-bottom: 4px solid $color-primary;
-    color: $color-primary;
+  &__header {
+    @include rem("padding", 15px 10px);
+    @include rem("font-size", 20px);
+    color: #FFF;
+    font-weight: $font-weight-light;
+    text-transform: uppercase;
   }
 
-  .home-category {
-    @include rem("margin", 5px 0);
+  &__container {
+    @include rem("padding", 0 0 15px);
+    @include rem("font-size", 18px);
+  }
 
-    &__link {
-      color: $color-primary;
+  &__list-item {
+    background-color: darken(#948557, 15);
+    border-bottom: 1px solid lighten(#948557, 15);
 
-      &:hover {
-        color: lighten($color-primary, 25);
-      }
+    &:last-child {
+      border-bottom: 0;
     }
+  }
+
+  &__list-item-link {
+    @include rem("padding", 10px);
+    color: #FFFFFF;
+    display: block;
+    font-weight: $font-weight-light;
+  }
+
+  .category-feeds {
+    @include rem("padding", 10px 10px 10px 20px);
+    background-color: darken(#948557, 10);
   }
 }

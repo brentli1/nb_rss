@@ -7,7 +7,11 @@ import Resource from 'vue-resource';
 // TODO:  Let's figure out a way to put all of these in
 // their own single import.
 import App from './components/App.vue';
-import HomeView from './components/HomeView.vue';
+import BaseView from './components/BaseView.vue';
+import Categories from './components/Categories.vue';
+import CateogoryFeeds from './components/CategoryFeeds.vue';
+import FeedList from './components/FeedList.vue';
+import FeedItem from './components/FeedItem.vue';
 import _404 from './base/404';
 
 $(() => {
@@ -17,17 +21,21 @@ $(() => {
   // Initialize the router
   let router = new Router({
     routes: [
-      { path: '/', component: HomeView },
+      { path: '/', component: BaseView },
       { path: '*', component: _404 }
     ],
     mode: 'history'
   });
 
+  Vue.component('categories', Categories);
+  Vue.component('feed-list', FeedList);
+  Vue.component('feed-item', FeedItem);
+  Vue.component('category-feeds', CateogoryFeeds);
+
   // Instantiate the Application
   new Vue({
     el: '#app',
-    router: router,
-    template: '<router-view class="main-body" keep-alive transition transition-mode="out-in"></router-view>'
+    router: router
   });
 
 });

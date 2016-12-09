@@ -1,15 +1,18 @@
 .main-nav {
   @include rem("padding", 0 10px);
   background: $color-main-nav__base;
-  height: 50px;
   position: relative;
+  display: flex;
+  flex: 0 0 50px;
+  flex-direction: row;
 
   &__logo {
     @include rem("font-size", 20px);
     color: #FFFFFF;
+    display: flex;
     height: 50px;
+    flex: 1;
     line-height: 50px;
-    position: absolute;
   }
 
   &__emp {
@@ -17,7 +20,9 @@
   }
 
   &__items {
-    text-align: right;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
   }
 
   &__item {

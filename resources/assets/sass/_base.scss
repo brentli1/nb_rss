@@ -1,4 +1,16 @@
+.site-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 .main-body {
-  margin: 30px auto;
-  max-width: 1000px;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+.app-wrapper {
+  display: flex;
+  flex: 1;
 }
