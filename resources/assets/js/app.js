@@ -27,6 +27,9 @@ $(() => {
     mode: 'history'
   });
 
+  // Initialize the global event bus
+  window.eventBus = new Vue();
+
   Vue.component('categories', Categories);
   Vue.component('feed-list', FeedList);
   Vue.component('feed-item', FeedItem);

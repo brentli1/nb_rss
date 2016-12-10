@@ -15,13 +15,19 @@
 <script>
   export default {
     data () {
-      this.$http.get('/api/category').then((response) => {
-        this.categories = response.body;
-      });
-
       return {
         categories: []
       }
     },
+    methods: {
+      fetchCategories: function() {
+        this.$http.get('/api/category').then((response) => {
+          this.categories = response.body;
+        });
+      }
+    },
+    created: function() {
+      this.fetchCategories();
+    }
   }
 </script>
