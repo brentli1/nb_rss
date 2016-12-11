@@ -1,7 +1,7 @@
 <template>
   <ul v-if="feeds.length" class="category-feeds">
-    <li class="categories-feeds__list-item" v-for="feed in feeds">
-      <a href="" @click.prevent="sendFeedId(feed.id)" class="categories-feeds__list-item-link">{{feed.name}}</a>
+    <li class="category-feeds__list-item" v-for="feed in feeds">
+      <a href="" @click.prevent="sendFeedUrl(feed.url_path)" class="category-feeds__list-item-link">{{feed.name}}</a>
     </li>
   </ul>
 </template>
@@ -17,8 +17,8 @@
       'catID'
     ],
     methods: {
-      sendFeedId: function(id) {
-        window.eventBus.$emit('send-feed-id', id);
+      sendFeedUrl: function(url) {
+        window.eventBus.$emit('send-feed-url', url);
       },
 
       fetchFeeds: function() {

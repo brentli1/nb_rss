@@ -1,5 +1,30 @@
 .feed-list {
   display: flex;
-  flex: 0 0 25%;
+  flex: 0 0 30%;
   flex-direction: column;
+  max-height: calc(100vh - 50px);
+  overflow-y: auto;
+
+  &__item {
+    @include rem("margin", 10px);
+    @include rem("padding", 10px);
+    border: 1px solid #D3D3D3;
+    border-radius: 10px;
+  }
+
+  &__headline {
+    @include rem("font-size", 18px);
+    @include rem("margin-bottom", 10px);
+    font-weight: $font-weight-light;
+  }
+
+  &__author {
+    @include rem("font-size", 16px);
+    @include rem("margin-bottom", 5px);
+  }
+
+  &__pub-date {
+    @include rem("font-size", 14px);
+    color: #999;
+  }
 }

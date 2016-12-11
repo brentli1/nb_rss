@@ -1,5 +1,49 @@
 .feed-item {
+  @include rem("margin", 10px 0);
+  border: 2px solid #D3D3D3;
+  border-radius: 10px;
   display: flex;
   flex: 0 0 50%;
   flex-direction: column;
+
+  &__menu-bar {
+    background-color: #D3D3D3;
+    border-radius: 10px 10px 0 0;
+    height: 40px;
+  }
+
+  &__content-wrapper {
+    @include rem("padding", 20px);
+  }
+
+  &__title {
+    @include rem("font-size", 24px);
+    @include rem("margin-bottom", 10px);
+  }
+
+  &__date {
+    @include rem("font-size", 16px);
+    @include rem("margin-bottom", 10px);
+    color: #999;
+  }
+
+  img {
+    @include rem("padding", 5px);
+    @include rem("margin", 5px);
+    display: inline-block;
+    border: 1px double #D3D3D3;
+    max-width: 100%;
+  }
+
+  p {
+    @include rem("font-size", 16px);
+    @include rem("margin", 10px 0);
+    line-height: 1.1;
+  }
+
+  blockquote {
+    @include rem("padding", 20px 30px);
+    font-style: italic;
+    font-weight: $font-weight-light;
+  }
 }

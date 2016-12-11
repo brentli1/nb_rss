@@ -1,8 +1,12 @@
 <template @send-feed-id="setFeedList">
   <section class="feed-list">
-    <ul class="">
-      <li class="" v-for="item in feedItems">
-        <a href="" class="">{{item.name}}</a>
+    <ul class="feed-list__items">
+      <li class="feed-list__item" v-for="item in feedItems">
+        <a href="" @click.prevent="showFeedItem(item)" class="feed-list__link">
+          <h1 class="feed-list__headline">{{item.title}}</h1>
+          <div class="feed-list__author">{{item.author}}</div>
+          <div class="feed-list__pub-date">{{item.pubDate}}</div>
+        </a>
       </li>
     </ul>
   </section>
@@ -12,34 +16,22 @@
   module.exports = {
     data: function() {
       return {
-        // ONLY A TEST
-        feedItems: [
-          {
-            name: 'first-feed-item'
-          },
-          {
-            name: 'second-feed-item'
-          }
-        ]
+        feedItems: []
       }
     },
     methods: {
-      setFeedList: function(id) {
-        // ONLY A TEST
-        if(id == 1) {
-          this.feedItems =
-          [
-            {
-              name: "tate's dream"
-            },
-            {
-              name: "dr. harmon"
-            }
-          ]
-        }
+      setFeedList: function(url) {
+        this.$http.get('http://api.rss2json.com/v1/api.json?rss_url=' + url).then((res) => {
+          this.feedItems = res.body.items;
+        });
       },
+
       setListeners: function() {
-        window.eventBus.$on('send-feed-id', this.setFeedList);
+        window.eventBus.$on('send-feed-url', this.setFeedList);
+      },
+
+      showFeedItem: function(item) {
+        window.eventBus.$emit('show-feed-item', item);
       }
     },
     created: function() {
