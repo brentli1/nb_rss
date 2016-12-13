@@ -6,7 +6,6 @@ import Resource from 'vue-resource';
 // Views
 // TODO:  Let's figure out a way to put all of these in
 // their own single import.
-import App from './components/App.vue';
 import BaseView from './components/BaseView.vue';
 import Categories from './components/Categories.vue';
 import CateogoryFeeds from './components/CategoryFeeds.vue';
