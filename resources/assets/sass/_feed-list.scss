@@ -10,6 +10,15 @@
     @include rem("padding", 10px);
     border: 1px solid #D3D3D3;
     border-radius: 10px;
+    transition: background-color 500ms;
+
+    &:hover {
+      background-color: #D3D3D3;
+    }
+
+    &:active {
+      background-color: red;
+    }
   }
 
   &__headline {

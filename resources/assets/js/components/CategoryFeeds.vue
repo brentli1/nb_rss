@@ -1,7 +1,7 @@
 <template>
   <ul v-if="feeds.length" class="category-feeds">
     <li class="category-feeds__list-item" v-for="feed in feeds">
-      <a href="" @click.prevent="sendFeedUrl(feed.url_path)" class="category-feeds__list-item-link">{{feed.name}}</a>
+      <a href="" @click.prevent="sendFeedUrl(feed.url_path, feed.id)" class="category-feeds__list-item-link">{{feed.name}}</a>
     </li>
   </ul>
 </template>
@@ -13,12 +13,14 @@
         feeds: []
       }
     },
+
     props: [
       'catID'
     ],
+
     methods: {
-      sendFeedUrl: function(url) {
-        window.eventBus.$emit('send-feed-url', url);
+      sendFeedUrl: function(url, feed_id) {
+        window.eventBus.$emit('send-feed-url', url, feed_id);
       },
 
       fetchFeeds: function() {
@@ -27,6 +29,7 @@
         });
       }
     },
+
     created: function() {
       this.fetchFeeds();
     }

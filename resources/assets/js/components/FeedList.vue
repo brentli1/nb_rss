@@ -19,10 +19,13 @@
         feedItems: []
       }
     },
+
     methods: {
-      setFeedList: function(url) {
+      setFeedList: function(url, feed_id) {
         this.$http.get('http://api.rss2json.com/v1/api.json?rss_url=' + url).then((res) => {
-          this.feedItems = res.body.items;
+          this.$http.post('/api/feed_items/' + feed_id, res.body.items).then((data) => {
+            this.feedItems = data.body;
+          }, (err) => { console.log('error', err); });
         });
       },
 
@@ -34,6 +37,7 @@
         window.eventBus.$emit('show-feed-item', item);
       }
     },
+
     created: function() {
       this.setListeners();
     }

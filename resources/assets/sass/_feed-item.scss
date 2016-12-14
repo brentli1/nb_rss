@@ -27,6 +27,12 @@
     color: #999;
   }
 
+  &__description {
+    > img:last-child {
+      display: none;
+    }
+  }
+
   img {
     @include rem("padding", 5px);
     @include rem("margin", 5px);
