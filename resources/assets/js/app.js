@@ -11,6 +11,7 @@ import Categories from './components/Categories.vue';
 import CateogoryFeeds from './components/CategoryFeeds.vue';
 import FeedList from './components/FeedList.vue';
 import FeedItem from './components/FeedItem.vue';
+import Modal from './components/Modal/Modal.vue';
 import _404 from './base/404';
 
 $(() => {
@@ -33,6 +34,7 @@ $(() => {
   Vue.component('feed-list', FeedList);
   Vue.component('feed-item', FeedItem);
   Vue.component('category-feeds', CateogoryFeeds);
+  Vue.component('modal', Modal);
 
   // Instantiate the Application
   new Vue({

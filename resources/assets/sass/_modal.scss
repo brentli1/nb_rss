@@ -1,0 +1,97 @@
+.modal {
+  &__overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transition: 500ms ease;
+  }
+
+  &__container {
+    background: #FFF;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    width: 60%;
+    transition: 500ms ease;
+  }
+
+  &__close {
+    @include rem("padding", 10px 20px);
+    @include rem("margin", 10px 0);
+    border: 2px solid #000;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__header {
+    @include rem("padding", 20px);
+    background: $color-secondary-light;
+    position: relative;
+    text-align: center;
+  }
+
+  &__form-container {
+    @include rem("padding", 20px);
+    text-align: right;
+    margin: 0 auto;
+    max-width: 70%;
+  }
+
+  &__input {
+    @include rem("padding", 10px);
+    @include rem("margin-bottom", 25px);
+    border: 1px solid #D3D3D3;
+    display: block;
+    width: 100%;
+  }
+
+  &__label {
+    @include rem("margin-bottom", 15px);
+    display: block;
+    text-align: left;
+  }
+
+  &__submit {
+    @include rem("margin-bottom", 15px);
+    @include rem("padding", 10px 35px);
+    @include rem("font-size", 18px);
+    background: lighten($color-primary, 15);
+    color: #FFFFFF;
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-enter-active {
+  transition: all .3s ease;
+}
+
+.modal-leave-active {
+  opacity: 0;
+  transition: all .5s ease;
+}
+
+.modal-enter .modal__container {
+  transform: scale(0.8);
+}
+
+.modal-leave-active .modal__container {
+  transform: scale(0.8);
+}

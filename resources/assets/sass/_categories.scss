@@ -1,8 +1,9 @@
 .categories {
-  background-color: #948557;
+  background-color: $color-secondary;
   display: flex;
   flex: 0 0 20%;
   flex-direction: column;
+  max-height: calc(100vh - 50px);
 
   &__header {
     @include rem("padding", 15px 10px);
@@ -18,8 +19,9 @@
   }
 
   &__list-item {
-    background-color: darken(#948557, 15);
-    border-bottom: 1px solid lighten(#948557, 15);
+    background-color: $color-secondary-darker;
+    border-bottom: 1px solid lighten($color-secondary, 15);
+    position: relative;
 
     &:last-child {
       border-bottom: 0;
@@ -27,14 +29,34 @@
   }
 
   &__list-item-link {
-    @include rem("padding", 10px);
+    @include rem("padding", 0 10px);
     color: #FFFFFF;
-    display: block;
+    display: inline-block;
     font-weight: $font-weight-light;
+    line-height: 40px;
+  }
+
+  &__add-feed-link {
+    @include rem("padding", 0 10px);
+    @include rem("font-size", 12px);
+    color: #FFFFFF;
+    font-weight: $font-weight-light;
+    line-height: 40px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+
+    &:before {
+      @include rem("margin-right", 5px);
+      content: "\f0fe";
+      font-family: $font-family-icon;
+      position: relative;
+      top: 1px;
+    }
   }
 
   .category-feeds {
-    background-color: darken(#948557, 10);
+    background-color: $color-secondary-dark;
 
     &__list-item {
       @include rem("padding", 10px 10px 10px 20px);

@@ -1,39 +1,69 @@
 .feed-list {
+  @include rem("padding-bottom", 10px);
   display: flex;
   flex: 0 0 30%;
   flex-direction: column;
-  max-height: calc(100vh - 50px);
+  max-height: calc(100vh - 60px);
   overflow-y: auto;
 
   &__item {
     @include rem("margin", 10px);
     @include rem("padding", 10px);
-    border: 1px solid #D3D3D3;
+    box-shadow: inset 0 0 0 1px $color-secondary-darker;
+    border-left: 5px solid $color-secondary-darker;
     border-radius: 10px;
-    transition: background-color 500ms;
+    position: relative;
 
     &:hover {
-      background-color: #D3D3D3;
+      box-shadow: inset 0 0 0 3px $color-secondary-darker;
     }
+  }
 
-    &:active {
-      background-color: red;
+  &__item--selected {
+    background-color: $color-secondary-light;
+    box-shadow: inset 0 0 0 3px $color-secondary-darker;
+
+    .feed-list__pub-date {
+      color: darken(#ffffff, 60);
     }
+  }
+
+  &__link {
+    display: block;
   }
 
   &__headline {
-    @include rem("font-size", 18px);
+    @include rem("font-size", 16px);
     @include rem("margin-bottom", 10px);
-    font-weight: $font-weight-light;
+    font-weight: $font-weight-normal;
   }
 
   &__author {
-    @include rem("font-size", 16px);
+    @include rem("font-size", 15px);
     @include rem("margin-bottom", 5px);
+    font-weight: $font-weight-normal;
   }
 
   &__pub-date {
-    @include rem("font-size", 14px);
+    @include rem("font-size", 13px);
     color: #999;
+  }
+
+  &__pub-date,
+  &__item {
+    transition: 500ms;
+  }
+
+  &__star {
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+
+    &:before {
+      @include rem("font-size", 30px);
+      font-family: $font-family-icon;
+      color: $color-primary;
+      content: "\f005";
+    }
   }
 }

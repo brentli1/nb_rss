@@ -7,6 +7,7 @@
           <div class="feed-list__author">{{item.author}}</div>
           <div class="feed-list__pub-date">{{item.pubDate}}</div>
         </a>
+        <span v-if="item.starred == 1" class="feed-list__star"></span>
       </li>
     </ul>
   </section>
@@ -40,6 +41,13 @@
 
     created: function() {
       this.setListeners();
+    },
+
+    updated: function() {
+      $('.feed-list__link').on('click', function() {
+        $('.feed-list__link').parent().removeClass('feed-list__item--selected');
+        $(this).parent().addClass('feed-list__item--selected');
+      });
     }
   }
 </script>

@@ -10,10 +10,14 @@ $susy: (
 // COLORS
 $color-primary: #152736;
 $color-secondary: #948557;
+$color-secondary-dark: darken($color-secondary, 10);
+$color-secondary-darker: darken($color-secondary, 15);
+$color-secondary-light: lighten($color-secondary, 20);
 $color-main-nav__base: $color-primary;
 
 // FONTS
 $font-family-base: 'Lato', sans-serif !default;
+$font-family-icon: 'icomoon' !default;
 $font-weight-normal: 400;
 $font-weight-light: 300;
 $font-weight-bold: 700;

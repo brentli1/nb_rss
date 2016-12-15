@@ -1,19 +1,46 @@
 .feed-item {
-  @include rem("margin", 10px 0);
-  border: 2px solid #D3D3D3;
-  border-radius: 10px;
+  @include rem("padding", 10px 10px 10px 0);
   display: flex;
   flex: 0 0 50%;
   flex-direction: column;
 
   &__menu-bar {
-    background-color: #D3D3D3;
+    @include rem("padding", 0 10px);
+    background-color: $color-secondary-light;
+    border: 1px solid $color-secondary-darker;
     border-radius: 10px 10px 0 0;
     height: 40px;
+    min-height: 40px;
+    text-align: right;
+  }
+
+  &__read {
+    @include rem("margin-right", 15px);
+    line-height: 40px;
+  }
+
+  &__starred {
+    line-height: 40px;
+  }
+
+  &__read,
+  &__starred {
+    color: #333;
+    transition: 500ms;
+
+    &:hover {
+      color: lighten(#333, 20);
+    }
   }
 
   &__content-wrapper {
     @include rem("padding", 20px);
+    border: 2px solid #D3D3D3;
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+    max-height: calc(100vh - 50px - 60px);
+    min-height: calc(100vh - 50px - 60px);
+    overflow: auto;
   }
 
   &__title {
@@ -36,8 +63,9 @@
   img {
     @include rem("padding", 5px);
     @include rem("margin", 5px);
-    display: inline-block;
     border: 1px double #D3D3D3;
+    display: inline-block;
+    height: auto;
     max-width: 100%;
   }
 
