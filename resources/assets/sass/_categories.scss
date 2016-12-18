@@ -10,6 +10,7 @@
     @include rem("font-size", 20px);
     color: #FFF;
     font-weight: $font-weight-light;
+    position: relative;
     text-transform: uppercase;
   }
 
@@ -55,17 +56,47 @@
     }
   }
 
+  &__add-cat-link {
+    @include rem("font-size", 22px);
+    color: #FFFFFF;
+    line-height: 50px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+
+    &:before {
+      content: "\f0fe";
+      font-family: $font-family-icon;
+    }
+  }
+
   .category-feeds {
     background-color: $color-secondary-dark;
 
     &__list-item {
       @include rem("padding", 10px 10px 10px 20px);
       @include rem("font-size", 14px);
+      position: relative;
     }
 
     &__list-item-link {
       color: darken(#FFF, 15);
       font-weight: $font-weight-light;
+    }
+
+    &__list-item-edit {
+      @include rem("font-size", 16px);
+      color: #FFFFFF;
+      position: absolute;
+      line-height: 34px;
+      right: 10px;
+      top: 0;
+
+      &:before {
+        content: "\f044";
+        font-family: $font-family-icon;
+      }
     }
   }
 }

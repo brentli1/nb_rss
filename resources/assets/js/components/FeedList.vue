@@ -22,16 +22,16 @@
     },
 
     methods: {
-      setFeedList: function(url, feed_id) {
-        this.$http.get('http://api.rss2json.com/v1/api.json?rss_url=' + url).then((res) => {
-          this.$http.post('/api/feed_items/' + feed_id, res.body.items).then((data) => {
-            this.feedItems = data.body;
-          }, (err) => { console.log('error', err); });
-        });
-      },
-
       setListeners: function() {
         window.eventBus.$on('send-feed-url', this.setFeedList);
+      },
+      
+      setFeedList: function(url, feed_id) {
+        this.$http.jsonp('https://api.rss2json.com/v1/api.json?rss_url=' + url).then((res) => {
+          this.$http.post('/api/feed_items/' + feed_id, res.body.items).then((data) => {
+            this.feedItems = data.body;
+          });
+        });
       },
 
       showFeedItem: function(item) {

@@ -17,6 +17,7 @@ import _404 from './base/404';
 $(() => {
   Vue.use(Router);
   Vue.use(Resource);
+  Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('content');
 
   // Initialize the router
   let router = new Router({

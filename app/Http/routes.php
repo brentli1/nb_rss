@@ -25,10 +25,11 @@ Route::auth();
 
 Route::get('/app', 'HomeController@index');
 
-// Route::get('/category/{id}', ['uses' => 'CategoryController@show']);
-
 Route::get('/api/category', 'CategoryController@getAll')->middleware('auth');
 Route::get('/api/category/{id}', 'CategoryController@getFeeds')->middleware('auth');
+Route::post('/api/category/create', 'CategoryController@createCategory')->middleware('auth');
+Route::post('/api/category/feed/create/{id}', 'CategoryController@createFeed')->middleware('auth');
+Route::match(['put', 'patch'], '/api/category/feed/edit/{id}', 'CategoryController@editFeed')->middleware('auth');
 
 Route::post('/api/feed_items/{id}', 'FeedController@getCurrentRss')->middleware('auth');
 Route::get('/api/feed_items/{id}/mark_read', 'FeedController@markItemRead')->middleware('auth');

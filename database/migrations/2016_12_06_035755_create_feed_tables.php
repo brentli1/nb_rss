@@ -36,7 +36,7 @@ class CreateFeedTables extends Migration
             $table->string('content', 10000);
             $table->string('feed_link', 400);
             $table->string('feed_item_id', 200);
-            $table->timestamp('pubDate');
+            $table->dateTime('pubDate');
             $table->boolean('starred');
             $table->boolean('is_read');
             $table->integer('feed_id')->unsigned();
