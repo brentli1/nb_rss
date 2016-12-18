@@ -37,11 +37,15 @@
       },
 
       pushFeed: function(newFeed) {
-        this.feeds.push(newFeed);
+        if(this.catID == newFeed.category_id) {
+          this.feeds.push(newFeed);
+        }
       },
 
       updateFeed: function(feed) {
-        this.$set(this.feeds, this.feedIndex, {'name': feed.name, 'url_path': feed.url_path});
+        if(this.catID == feed.category_id) {
+          this.$set(this.feeds, this.feedIndex, {'name': feed.name, 'url_path': feed.url_path});
+        }
       },
 
       openEditFeed: function(action, feed) {

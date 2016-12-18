@@ -85,7 +85,7 @@
       },
 
       createFeed: function() {
-        this.$http.post('/api/category/feed/create/' + this.cat.id, this.feed).then((res) => {
+        this.$http.post('/api/category/feed/create/' + this.feed.category_id, this.feed).then((res) => {
           this.feed.id = res.body;
           this.message = 'Feed Created Successfully';
           window.eventBus.$emit('push-feed', this.feed);
